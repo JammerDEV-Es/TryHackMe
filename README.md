@@ -4,3 +4,5 @@
 
 When I started using TryHackMe, I found it helpful to write things down—not just to remember them later, but also to help others who might get stuck.
 Now I'm sharing these notes in case they’re useful to anyone reviewing a concept, troubleshooting a problem, or just getting started.
+
+My THM profile: https://tryhackme.com/p/JAMMER
