@@ -52,7 +52,7 @@ gobuster dir -u http://MACHINE-IP -w /usr/share/wordlists/dirb/common.txt
 ```
 -u its to specify the directory and -w its to put the wordlist
 
-common.txt has 4615 words, and in the page find
+common.txt has 4615 words, this are the page directories: 
 /.hta                 
 /.htaccess            
 /.htpasswd            
@@ -63,7 +63,50 @@ common.txt has 4615 words, and in the page find
 
 ![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recortegobusteer.png)
 
-## Step 3 
+After that we're gonna put the robots.txt like this http://MACHINE-IP/robots.txt and we're gonna see a simple text on the screen that it says: Wubbalubbadubdub
+
+This will be the password. Then put this https://MACHINE-IP/login.php and you will put the username **R1ckRul3s** and the Password **Wubbalubbadubdub**
+
+### Step 4 (Locate First Ingredient) - First Question: What is the first ingredient that Rick needs?
+
+After putting the username and the password, you should find the first ingredient on the in a file called `Sup3rS3cretPickl3Ingred.txt`. You can't `cat` the txt file because you're not able to do this
+then you're gonna put `less` it's basically the same function.
+![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recortelogin.png)
+
+### AND THE FIRST INGREDIENT WILL BE:  `mr. meeseek hair`
+
+## Step 4: Privilege Escalation for the Second Ingredient
+
+### Access a Protected Directory
+
+The second ingredient is located in the directory `/home/rick/second_ingredient/`. However, this directory is protected, and you'll need privileged access to view its contents.
+
+### Escalate Privileges
+
+To escalate privileges, you can attempt to use `sudo` if it's allowed. Run the following command to check what commands you can run as a privileged user:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
