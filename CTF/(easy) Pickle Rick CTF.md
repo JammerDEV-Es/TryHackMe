@@ -15,13 +15,13 @@ This is a detailed walkthrough of the **Pickle Rick** CTF challenge from TryHack
    - The first task is to perform a **port scan** to discover open ports and services on the machine. We can use **nmap** for this:
 
    ```bash
-   nmap -sC -sV -o PickleRickCTF -A <MACHINE_IP>
+   nmap -sC -sV -o PickleRickCTF -A MACHINE_IP
 ### Check Available Services
 
 After running the scan, you should see a web service running on ports like 80 or 8080. Open your browser and visit the IP address of the machine:
 
   ```bash
-  http://<MACHINE_IP>
+  http://MACHINE_IP
   ```
 You should see a page with some initial clues about the secret ingredients.
 
@@ -43,7 +43,27 @@ We will right-click on the blank space of the page and select 'View Page Source.
 
   -->
 ```
-If you don’t find any relevant information directly on the page, you can use Gobuster to scan for hidden directories and files. This will help you discover paths that might lead to important files.
+![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recorteusername.png)
+If you don’t find more relevant information directly on the page, you can use Gobuster, its a little bit slow to scan but it helps to find hidden directories and files. 
+
+you will put this on the console:
+```bash
+gobuster dir -u http://MACHINE-IP -w /usr/share/wordlists/dirb/common.txt
+```
+-u its to specify the directory and -w its to put the wordlist
+
+common.txt has 4615 words, and in the page find
+/.hta                 
+/.htaccess            
+/.htpasswd            
+/assets              
+/index.html           
+/robots.txt           
+/server-status        
+
+![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recortegobusteer.png)
+
+## Step 3 
 
 
 
