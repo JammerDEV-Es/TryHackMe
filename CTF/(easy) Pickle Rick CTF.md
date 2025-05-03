@@ -1,5 +1,5 @@
 # TryHackMe - **Pickle Rick** CTF Walkthrough
-
+## If you're searching for the answers its on the end 
 This is a detailed walkthrough of the **Pickle Rick** CTF challenge from TryHackMe. The goal of this challenge is to help Rick turn back into a human by finding three secret ingredients. This challenge is beginner-friendly and covers basic web exploitation, Linux commands, and privilege escalation.
 
 ---
@@ -67,25 +67,34 @@ After that we're gonna put the robots.txt like this http://MACHINE-IP/robots.txt
 
 This will be the password. Then put this https://MACHINE-IP/login.php and you will put the username **R1ckRul3s** and the Password **Wubbalubbadubdub**
 
-### Step 4 (Locate First Ingredient) - First Question: What is the first ingredient that Rick needs?
+## Step 3 (Locate First Ingredient) - First Question: What is the first ingredient that Rick needs?
 
 After putting the username and the password, you should find the first ingredient on the in a file called `Sup3rS3cretPickl3Ingred.txt`. You can't `cat` the txt file because you're not able to do this
 then you're gonna put `less` it's basically the same function.
 ![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recortelogin.png)
 
 ### AND THE FIRST INGREDIENT WILL BE:  `mr. meeseek hair`
-
-## Step 4: Privilege Escalation for the Second Ingredient
-
-### Access a Protected Directory
-
-The second ingredient is located in the directory `/home/rick/second_ingredient/`. However, this directory is protected, and you'll need privileged access to view its contents.
-
-### Escalate Privileges
-
-To escalate privileges, you can attempt to use `sudo` if it's allowed. Run the following command to check what commands you can run as a privileged user:
+---
+## Step 4 (Locate the Second Ingredient) - Second Question: What is the second ingredient in Rick’s potion?
 
 
+Doing `ls /home/` we will see a folder named `rick` so we put the same thing but with rick `ls /home/rick`
+![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recortecommand.png)
+And we will see the second ingredient `less /home/rick/"second ingredients`
+
+### SECOND INGREDIENT IT'S:  `1 jerry tear`
+---
+## Step 5 (Locate the Third Ingredient) - Third Question: What is the last and final ingredient?
+
+On this command shell we have `sudo` permission, so we gonna put 
+```bash
+sudo ls /root/
+```
+On `/root/` there's a .txt named `3rd.txt` so we're gonna put this on the command shell `sudo less /root/3rd.txt`
+![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recorte3rd.png)
+### AND THE THIRD INGREDIENT IT'S:  `fleeb juice` 
+---
+![](https://github.com/JammerDEV-Es/TryHackMe/blob/main/CTF/Images/recortepicklerickallflag.png)
 
 
 
